@@ -7,7 +7,6 @@ import mal from './utils/mal'
 import connectMongo from './db'
 import AnimeList from './models/AnimeList'
 import Auth from './models/Auth'
-import defaultAuth from '../auth.json'
 
 config()
 const app = express()
@@ -16,7 +15,7 @@ app.use(express.json())
 app.use(cors())
 app.use(router)
 
-if (!defaultAuth.access_token || !defaultAuth.refresh_token)
+if (!process.env.ACCESS_TOKEN || !process.env.REFRESH_TOKEN)
   throw new Error('Invalid Default MAL Auth')
 
 connectMongo(process.env.MONGODB_URI) // Connect to the MongoDB

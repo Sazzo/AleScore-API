@@ -2,8 +2,9 @@ import mongoose, { Schema, Document } from 'mongoose'
 
 export interface IAnimeList extends Document {
   _id: String
-  new: Array<Object>
-  list: Array<Object>
+  lastChanges: Object
+  beforeChanges: Object
+  oldList: Array<Object>
 }
 const AnimeListSchema: Schema = new Schema({
   _id: { type: String, required: true, default: 'alescore' },

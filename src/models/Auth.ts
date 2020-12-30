@@ -1,7 +1,5 @@
 import mongoose, { Schema, Document } from 'mongoose'
 
-import defaultAuth from '../../auth.json'
-
 export interface IAuth extends Document {
   _id: string
   access_token: string
@@ -12,12 +10,12 @@ const AuthSchema: Schema = new Schema({
   access_token: {
     type: String,
     required: true,
-    default: defaultAuth.access_token,
+    default: process.env.ACCESS_TOKEN,
   },
   refresh_token: {
     type: String,
     required: true,
-    default: defaultAuth.refresh_token,
+    default: process.env.REFRESH_TOKEN,
   },
 })
 
