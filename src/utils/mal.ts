@@ -35,7 +35,7 @@ export default {
     try {
       const auth = await Auth.findById('alescore')
       const res = await axios.get(
-        'https://api.myanimelist.net/v2/users/AmazingSazz/animelist?fields=list_status&limit=1000',
+        'https://api.myanimelist.net/v2/users/AlexandreEsteves/animelist?fields=list_status&limit=1000',
         {
           headers: {
             Authorization: `Bearer ${auth.access_token}`,
